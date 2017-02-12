@@ -6,7 +6,7 @@ import java.util.List;
 /**
  *
  * 节点之间关系类
- * Created by wuguang on 17/2/12.
+ * @author qsfs on 17/2/12.
  */
 public class NodeRelation {
     /*节点标识*/
