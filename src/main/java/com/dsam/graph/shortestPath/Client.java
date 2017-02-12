@@ -22,7 +22,7 @@ public class Client {
         graph1.setStartNode("A");
         graph1.setEndNode("C");
         graph1.setLine("1");
-        graph1.setWeightValue(100);
+        graph1.setWeightValue(10);
         graphs.add(graph1);
         NodeLine graph2 = new NodeLine();
         graph2.setStartNode("B");
@@ -36,6 +36,12 @@ public class Client {
         graph3.setLine("1");
         graph3.setWeightValue(1);
         graphs.add(graph3);
+        NodeLine graph4 = new NodeLine();
+        graph4.setStartNode("C");
+        graph4.setEndNode("B");
+        graph4.setLine("1");
+        graph4.setWeightValue(1);
+        graphs.add(graph4);
 
 
 

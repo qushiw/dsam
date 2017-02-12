@@ -10,10 +10,14 @@ public class RelatedNode {
     /*与关联顶点的权重*/
     private Integer weight;
 
+    /*是否走过的标识*/
+    protected boolean flag;
+
 
     public RelatedNode(NodeRelation nodeRelation,Integer weight){
         this.nodeRelation = nodeRelation;
         this.weight = weight;
+        this.flag = false;
     }
 
     public void setNodeRelation(NodeRelation nodeRelation) {
@@ -30,5 +34,13 @@ public class RelatedNode {
 
     public Integer getWeight() {
         return weight;
+    }
+
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
     }
 }

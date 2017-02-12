@@ -47,8 +47,8 @@ public class ComputeShortestPath {
             NodeRelation node = queue.poll();
             List<RelatedNode> list = node.getNextNodeList();
             for (RelatedNode relatedNode:list){
-                NodeRelation tempNode = dataMap.get(relatedNode.getNodeRelation().getName());
-//                if (tempNode.getWeightValue()!=Integer.MAX_VALUE){
+                if (!relatedNode.isFlag()){//避免走重复的路径，导致死循环
+                    NodeRelation tempNode = dataMap.get(relatedNode.getNodeRelation().getName());
                     tempNode.setWeightValue(relatedNode.getWeight()+node.getWeightValue());
                     ShortestPath shortestPath = sortMap.get(tempNode.getName());
                     if (shortestPath!=null){
@@ -59,9 +59,10 @@ public class ComputeShortestPath {
                     }else{
                         sortMap.put(tempNode.getName(),new ShortestPath(sortMap.get(node.getName()).getPath()+","+tempNode.getName(),tempNode.getWeightValue(),tempNode.getName()));
                     }
+                    queue.offer(tempNode);
+                    relatedNode.setFlag(true);
+                }
 
-//                }
-                queue.offer(tempNode);
             }
         }
     }
